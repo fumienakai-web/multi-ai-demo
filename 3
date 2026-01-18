@@ -1,0 +1,17 @@
+const express = require("express");
+const app = express();
+app.use(express.json());
+
+app.post("/chat", (req, res) => {
+  const text = req.body.message;
+
+  const ai1 = "AI① アイデア：" + text;
+  const ai2 = "AI② 整理：" + ai1;
+
+  res.json([
+    { name: "AI①", message: ai1 },
+    { name: "AI②", message: ai2 }
+  ]);
+});
+
+app.listen(3000, () => console.log("起動中"));
